@@ -38,7 +38,8 @@ return [
     'facebook' => [
         'client_id'     => '183886865850577',
         'client_secret' => '0dfe422d140fba9699757bbdc055f0e8',
-        'redirect'      => 'http://localhost:8000/login/facebook/callback',
+        'redirect'      => 'http://skidu.herokuapp.com/login/facebook/callback',
+        // 'redirect'      => 'http://localhost:8000/login/facebook/callback',
     ],
 
 ];
