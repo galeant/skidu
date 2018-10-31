@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TestController@dashboard')->middleware('checkLogin');
+Route::get('login', 'TestController@login');
+Route::get('logout', 'TestController@logout');
+Route::get('login/{provider}','TestController@toProvider');
+Route::get('login/{provider}/callback','TestController@callback');
