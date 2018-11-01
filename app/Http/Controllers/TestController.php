@@ -19,6 +19,30 @@ class TestController extends Controller
     public function login(){
         return view('login');
     }
+    public function loginProcess(Request $request){
+        $validate = User::where('email',$request->email)->first();
+        if($validate){
+            $pass = User::where([
+                'email' => $request->email,
+                'password' => md5($request->password)
+            ])->first();
+            if($pass){
+                if($pass->password == md5('from_api_facebook')){
+                    session()->put('error','Akun sudah terhubung ke facebook, silakang login dengan facebook');
+                    return redirect('/login');
+                }else{
+                    session()->put('user',$pass);
+                    return redirect('/');   
+                }
+            }else{
+                session()->put('error','Password Salah');
+                return redirect('/login');
+            }
+        }else{
+            session()->put('error','Email tidak ditemukan');
+            return redirect('/login');
+        }
+    }
     public function dashboard(){
         return view('dashboard');
     }

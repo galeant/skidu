@@ -94,12 +94,15 @@
   </div>
   <!-- Pre-loader end -->
     <section class="login-block">
+        
         <!-- Container-fluid starts -->
         <div class="container-fluid">
+        
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
-                    <form class="md-float-material form-material">
+                    <form method="POST" action="{{ url('login/process') }}" class="md-float-material form-material">
+                    @csrf
                         <div class="auth-box card">
                             <div class="card-block">
                                 <div class="row m-b-20">
@@ -115,11 +118,16 @@
                                         <button class="btn btn-twitter m-b-20 btn-block"><i class="icofont icofont-social-twitter"></i>twitter</button>
                                     </div> -->
                                 </div>
+                                @if(session()->get('error'))
+                                <div class="alert alert-danger background-danger">
+                                    <strong>{{ session()->pull('error') }}</strong>
+                                </div>
+                                @endif
                                 <p class="text-muted text-center p-b-5">Sign in with your regular account</p>
                                 <div class="form-group form-primary">
-                                    <input type="text" name="user-name" class="form-control" required="">
+                                    <input type="email" name="email" class="form-control" required="">
                                     <span class="form-bar"></span>
-                                    <label class="float-label">Username</label>
+                                    <label class="float-label">Email</label>
                                 </div>
                                 <div class="form-group form-primary">
                                     <input type="password" name="password" class="form-control" required="">
@@ -128,7 +136,7 @@
                                 </div>
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">LOGIN</button>
+                                        <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">LOGIN</button>
                                         
                                     </div>
                                 </div>

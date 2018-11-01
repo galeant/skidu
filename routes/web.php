@@ -12,6 +12,10 @@
 */
 Route::get('/', 'TestController@dashboard')->middleware('checkLogin');
 Route::get('login', 'TestController@login');
+Route::post('login/process', 'TestController@loginProcess');
 Route::get('logout', 'TestController@logout');
 Route::get('login/{provider}','TestController@toProvider');
 Route::get('login/{provider}/callback','TestController@callback');
+// Route::get('email',function(){
+//     return view('email');
+// });
