@@ -11,6 +11,9 @@ use GuzzleHttp\Exception\BadResponseException;
 use App\User;
 use DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
+
 class TestController extends Controller
 {
     public function login(){
@@ -38,15 +41,18 @@ class TestController extends Controller
                 'password' => md5('from_api_facebook'),
                 'token' => $user->token
             ]);
-            $mail = true;
+            Mail::to($create->email)->send(new SendEmail($create));
             // dd($create);
-            if($create && $mail){
+            if($create){
                 session()->put('user',$create);
                 return redirect('/');
             }else{
                 return redirect()->back();
             }
         }
+    }
+    public function email(){
+        return view('email');
     }
     
     public function guzel($req = [],$method = 'GET',$token){
