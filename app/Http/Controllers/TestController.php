@@ -16,6 +16,25 @@ use App\Mail\SendEmail;
 
 class TestController extends Controller
 {
+    public function minMax(Request $request){
+        $nilai = $request->nilai;
+        if($nilai != null){
+            $min = (int)$nilai[0];
+            $max = (int)$nilai[0];
+            for($i=0;$i <count($nilai);$i++){
+                if((int)$nilai[$i] < $min){
+                    $min = (int)$nilai[$i];
+                }
+                if((int)$nilai[$i] > $max){
+                    $max = (int)$nilai[$i];
+                }
+            }
+        }
+        return response()->json([
+            'min' => (int)$min,
+            'max' => (int)$max
+        ],200);
+    }
     public function login(){
         return view('login');
     }

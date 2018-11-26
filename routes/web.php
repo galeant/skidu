@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('hitung',function(){
+    return view('hitung');
+});
+Route::get('min_max','TestController@minMax');
 Route::get('/', 'TestController@dashboard')->middleware('checkLogin');
 Route::get('login', 'TestController@login');
 Route::post('login/process', 'TestController@loginProcess');
