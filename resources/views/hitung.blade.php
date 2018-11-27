@@ -115,7 +115,7 @@
                                 <div class="row">
                                     <div class="form-group form-primary col-md-6" id="deret">
                                         <label class="float-label">Angka ke-<span id="urutan">1</span></label>
-                                        <input type="text" name="nilai" class="form-control">
+                                        <input type="number" name="nilai" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row m-t-30">
@@ -183,15 +183,28 @@
             $("input[name='nilai']").each(function(){
                 nilai.push(parseInt($(this).val()));
             })
-            $.ajax({
-                method: "GET",
-                url: "{{ url('min_max')}}",
-                data: { nilai: nilai }
-            }).done(function(response) {
-                $("#hasil").show();
-                $("#tinggi").text(response.max)
-                $("#rendah").text(response.min)
-            });
+            if(nilai != null){
+                var min = nilai[0];
+                var max = nilai[0];
+                for(var i=0;i <nilai.length;i++){
+                    if(nilai[i] < min){
+                        min = nilai[i];
+                    }
+                    if(nilai[i] > max){
+                        max = nilai[i];
+                    }
+                }
+            }
+            $("#hasil").show();
+            $("#tinggi").text(max)
+            $("#rendah").text(min)
+            // $.ajax({
+            //     method: "GET",
+            //     url: "{{ url('min_max')}}",
+            //     data: { nilai: nilai }
+            // }).done(function(response) {
+                
+            // });
         })
     });
 </script>
