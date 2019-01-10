@@ -23,3 +23,4 @@ Route::get('login/{provider}/callback','TestController@callback');
 // Route::get('email',function(){
 //     return view('email');
 // });
+// Route::get('trans','TestController@trans');

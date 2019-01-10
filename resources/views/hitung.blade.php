@@ -189,11 +189,13 @@
                 for(var i=0;i <nilai.length;i++){
                     if(nilai[i] < min){
                         min = nilai[i];
-                    }
-                    if(nilai[i] > max){
+                    }else if(nilai[i] > max){
                         max = nilai[i];
                     }
                 }
+            }else{
+                var min = 0;
+                var max = 0;
             }
             $("#hasil").show();
             $("#tinggi").text(max)

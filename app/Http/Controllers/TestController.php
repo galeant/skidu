@@ -13,10 +13,73 @@ use DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendEmail;
+use App\LocationModel;
+use App\LocationHasil;
+use App\Transaction;
 
 class TestController extends Controller
 {
     public function minMax(Request $request){
+        $ab = LocationModel::orderBy('id','ASC')->get();
+        $b = [];
+        foreach($ab as $if=> $a){
+            $b['harusnys'][$a->id] = explode(' ',$a->name); 
+            $ar =  explode(' ',$a->name); 
+            $in = array_search('-', $ar);
+            if($in != false){
+                for($i=0;$i<$in;$i++){
+                    $b['province'][$if][] = $ar[$i];
+                }
+                for($j=$in+1;$j<count($ar);$j++){
+                    $b['kota'][$if][] = $ar[$j];
+                }
+            }else{
+                $b['province'][$if] = $ar;
+                $b['kota'][$if] = null;
+            }
+        }
+        
+        // dd($b['kota']);
+
+        $hasil = [];
+        for($l=0;$l<$ab->count();$l++){
+            $hasil[$l]['id'] = $ab[$l]->id;
+            $hasil[$l]['agency_location_id'] = $ab[$l]->agency_location_id;
+            $hasil[$l]['language_id'] = $ab[$l]->language_id;
+            $hasil[$l]['name'] = $ab[$l]->name;
+            $hasil[$l]['formatted_address'] = $ab[$l]->formatted_address;
+            $hasil[$l]['latitude'] = $ab[$l]->latitude;
+            $hasil[$l]['longitude'] = $ab[$l]->longitude;
+        }
+        for($d=0;$d<$ab->count();$d++){
+            // dd($b['province'][$d]);
+            if($b['province'][$d] == null){
+                $hasil[$d]['province'] = null;
+            }
+            if(count($b['province'][$d]) != 1){
+                $hasil[$d]['province'] = implode(' ',$b['province'][$d]);
+            }else{
+                $hasil[$d]['province'] = $b['province'][$d][0];
+            }
+        }
+        for($g=0;$g<$ab->count();$g++){
+            // dd($b['kota'][$g]);
+            if($b['kota'][$g] == null){
+                $hasil[$g]['city'] = null;
+            }else{
+                if(count($b['kota'][$g]) != 1){
+                    $hasil[$g]['city'] = implode(' ',$b['kota'][$g]);
+                }else{
+                    $hasil[$g]['city'] = $b['kota'][$g][0];
+                }
+            }
+            
+        }
+        // dd($hasil);
+        foreach($hasil as $h){
+            LocationHasil::create($h);
+        }
+        dd('kelar');
         $nilai = $request->nilai;
         if($nilai != null){
             $min = (int)$nilai[0];
@@ -112,8 +175,7 @@ class TestController extends Controller
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
         }
-        // $response = $client->post($uri,null,$request);
-        
+        // $response = $client->post($uri,null,$request);    
     }
     public function logout(){
         User::where('id',session()->get('user')->id)->update([
@@ -121,5 +183,37 @@ class TestController extends Controller
         ]);
         session()->flush();
         return redirect('/login');
+    }
+    public function trans(){
+        $data = Transaction::with('tour','car','hotel','plane')->where('status_id',2)->get();
+        $ar = [];
+        foreach($data as $i=>$dt){
+            $ar[$i]['transaction_number'] = $dt->transaction_number;
+            $ar[$i]['payment_method'] = $dt->payment_method;
+            $ar[$i]['total_price'] = $dt->total_price;
+            $ar[$i]['total_paid'] = $dt->total_paid;
+            $ar[$i]['tour'] = [];
+            $ar[$i]['car'] = [];
+            $ar[$i]['hotel'] = [];
+            $ar[$i]['flight'] = [];
+            foreach($dt->tour as $itr=>$tr){
+                $ar[$i]['tour'][$itr]['tour_name'] = $tr->tour_name;
+            }  
+            foreach($dt->car as $icr=>$cr){
+                $ar[$i]['car'][$icr]['agency_name'] = $cr->agency_name;
+            }
+            foreach($dt->hotel as $iht=>$ht){
+                $ar[$i]['hotel'][$iht]['hotel_name'] = $ht->hotel_name;
+            }
+            foreach($dt->plane as $ifl=>$fl){
+                
+                $ar[$i]['flight'][$ifl]['provider_name'] = $fl->provider_name;
+            }
+            
+        }
+        return response()->json($data);
+    }
+    public function pub_guzel($req = [],$method = 'GET'){
+
     }
 }
