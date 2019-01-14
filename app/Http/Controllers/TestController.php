@@ -16,6 +16,8 @@ use App\Mail\SendEmail;
 use App\LocationModel;
 use App\LocationHasil;
 use App\Transaction;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 
 class TestController extends Controller
 {
@@ -215,5 +217,46 @@ class TestController extends Controller
     }
     public function pub_guzel($req = [],$method = 'GET'){
 
+    }
+    public function lolo(Request $request){
+        // $results = [];
+        // for($i = 1;$i<=10000;$i++){
+        //     $results[] = ['data_ke' =>$i,'nilai' => $i+rand(10,1000)];
+        // }
+        // $results = DB::table('nilai')->insert($results);
+        // dd('qwdqwdq');
+        // $results = DB::table('nilai')->orderBy('nilai','asc')->get();
+        // return $results;
+
+        $a = DB::table('nilai')->get();
+        $results = [];
+        foreach($a as $a){
+            $results[] = ['data' => $a->data_ke,'val' => $a->nilai];
+        }
+        // dd($results);
+         //This would contain all data to be sent to the view
+         $data = array();
+
+         //Get current page form url e.g. &page=6
+         $currentPage = LengthAwarePaginator::resolveCurrentPage();
+ 
+         //Create a new Laravel collection from the array data
+         $collection = collect($results)->sortBy('val')->values();
+        // dd($collection->toArray());
+         //Define how many items we want to be visible in each page
+         $per_page = 2;
+ 
+         //Slice the collection to get the items to display in current page
+         $currentPageResults = $collection->slice(($currentPage-1) * $per_page, $per_page)->all();
+ 
+         //Create our paginator and add it to the data array
+         $data['results'] = new LengthAwarePaginator($currentPageResults, count($collection), $per_page);
+ 
+         //Set base url for pagination links to follow e.g custom/url?page=6
+         $data['results']->setPath($request->url());
+ 
+         //Pass data to view
+         return $data;
+         return view('search', $data);
     }
 }
