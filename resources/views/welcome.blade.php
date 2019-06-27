@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <!-- Styles -->
         <style>
@@ -62,6 +63,12 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .a{
+                color:white;
+            }
+            .bg-blue{
+                background-color:#99FFFF;
+            }
         </style>
     </head>
     <body>
@@ -83,10 +90,10 @@
                 </div> -->
 
                 <div class="links">
-                    <a href="{{ url('contoh_1') }}">Contoh 1</a>
-                    <a href="{{ url('contoh_2') }}">Contoh 2</a>
-                    <a href="{{ url('contoh_3') }}">Contoh 3</a>
-                    <a href="{{ url('contoh_4') }}">Contoh 4</a>
+                    <a class="btn bg-blue" href="{{ url('contoh_1') }}">Template 1</a>
+                    <a class="btn bg-blue" href="{{ url('contoh_2') }}">Template 2</a>
+                    <a class="btn bg-blue" href="{{ url('contoh_3') }}">Template 3</a>
+                    <a class="btn bg-blue" href="{{ url('contoh_4') }}">Template 4</a>
                     <!-- <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
@@ -97,4 +104,7 @@
             </div>
         </div>
     </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
