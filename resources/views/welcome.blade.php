@@ -78,17 +78,21 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <!-- <div class="title m-b-md">
                     Laravel
-                </div>
+                </div> -->
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
+                    <a href="{{ url('contoh_1') }}">Contoh 1</a>
+                    <a href="{{ url('contoh_2') }}">Contoh 2</a>
+                    <a href="{{ url('contoh_3') }}">Contoh 3</a>
+                    <a href="{{ url('contoh_4') }}">Contoh 4</a>
+                    <!-- <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://github.com/laravel/laravel">GitHub</a> -->
                 </div>
             </div>
         </div>
