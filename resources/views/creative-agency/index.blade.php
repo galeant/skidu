@@ -25,6 +25,14 @@
     <link rel="stylesheet" href="{{ asset('creative-agency-css/font-awesome.min.css') }}">
 
     <link type="text/css" rel="stylesheet" href="{{ asset('creative-agency-css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('craft-css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('craft-css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('craft-css/jquery.fancybox.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('craft-fonts/ionicons/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('craft-fonts/fontawesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('craft-fonts/flaticon/font/flaticon.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
 
     <!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -94,7 +102,123 @@
         </div>
 
     </header>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mr-auto mb-5">
+                    <span class="d-block text-uppercase text-secondary">Who We Are</span>
+                    <span class="divider my-4"></span>
+                    <h2 class="mb-4 section-title">We Are <strong>Design Agency</strong> That Bring Your Ideas Alive</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id autem temporibus blanditiis accusamus perferendis libero accusantium nisi itaque tempore, harum aliquid aut, sapiente dolor tenetur. Tempora corrupti suscipit delectus perspiciatis!</p>
+                    <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus.</p>
+                    <p><a href="#" class="btn btn-outline-black">Learn More</a></p>
+                </div>
+                <div class="col-lg-6">
+                    <figure class="img-dotted-bg">
+                        <img src="{{ asset('craft-images/about_1.jpg') }}" alt="Image" class="img-fluid">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    
+    <div class="section portfolio-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="mb-4 section-title">Latest Work</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <a href="portfolio-single.html" class="work-thumb">
+                        <div class="work-text">
+                            <h2>Work Name Here</h2>
+                            <p>Category Here</p>
+                        </div>
+                        <img src="{{ asset('craft-images/work_1.jpg') }}" alt="Image" class="img-fluid">
+                    </a>
+                    <a href="portfolio-single.html" class="work-thumb">
+                        <div class="work-text">
+                            <h2>Work Name Here</h2>
+                            <p>Category Here</p>
+                        </div>
+                        <img src="{{ asset('craft-images/work_4.jpg') }}" alt="Image" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a href="portfolio-single.html" class="work-thumb">
+                        <div class="work-text">
+                            <h2>Work Name Here</h2>
+                            <p>Category Here</p>
+                        </div>
+                        <img src="{{ asset('craft-images/work_2.jpg') }}" alt="Image" class="img-fluid">
+                    </a>
+                    <a href="portfolio-single.html" class="work-thumb">
+                        <div class="work-text">
+                            <h2>Work Name Here</h2>
+                            <p>Category Here</p>
+                        </div>
+                        <img src="{{ asset('craft-images/work_3.jpg') }}" alt="Image" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p><a href="portfolio.html" class="btn btn-outline-white px-4 py-3">More Portfolio</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mr-auto mb-3">
+                    <span class="d-block text-uppercase text-secondary">Featured Services</span>
+                    <span class="divider my-4"></span>
+                    <h2 class="mb-4 section-title">The <strong>Services</strong> That We Are Providing</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id autem temporibus blanditiis accusamus perferendis libero accusantium nisi itaque tempore, harum aliquid aut, sapiente dolor tenetur. Tempora corrupti suscipit delectus perspiciatis!</p>
+                    <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus.</p>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="row mt-5">
+                        <div class="col-lg-6 col-md-6 mb-4">
+                            <div class="service">
+                                <span class="icon icon-shield mb-4 d-block"></span>
+                                <h3>Branding</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias id volume amet.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 mb-4">
+                            <div class="service">
+                                <span class="icon icon-screen-desktop mb-4 d-block"></span>
+                                <h3>Web Design</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias id volume amet.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 mb-4">
+                            <div class="service">
+                                <span class="icon icon-screen-smartphone mb-4 d-block"></span>
+                                <h3>App Design</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias id volume amet.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 mb-4">
+                            <div class="service">
+                                <span class="icon icon-rocket mb-4 d-block"></span>
+                                <h3>Start Up</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias id volume amet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="about" class="section md-padding">
 
         <div class="container">
@@ -138,6 +262,7 @@
 
     </div>
 
+    
     <div id="portfolio" class="section md-padding bg-grey">
 
         <div class="container">
@@ -756,11 +881,16 @@
 
     <script data-cfasync="false" src="{{ asset('creative-agency-js/email-decode.min.js') }}"></script>
     <script type="a0520ad00f72731040c98d19-text/javascript" src="{{ asset('creative-agency-js/jquery.min.js') }}"></script>
+    <script src="{{ asset('craft-js/jquery-migrate-3.0.1.min.js') }}"></script>
+    <script src="{{ asset('craft-js/popper.min.js') }}"></script>
     <script type="a0520ad00f72731040c98d19-text/javascript" src="{{ asset('creative-agency-js/bootstrap.min.js') }}"></script>
     <script type="a0520ad00f72731040c98d19-text/javascript" src="{{ asset('creative-agency-js/owl.carousel.min.js') }}"></script>
     <script type="a0520ad00f72731040c98d19-text/javascript" src="{{ asset('creative-agency-js/jquery.magnific-popup.js') }}"></script>
     <script type="a0520ad00f72731040c98d19-text/javascript" src="{{ asset('creative-agency-js/main.js') }}"></script>
     <script src="{{ asset('creative-agency-js/rocket-loader.min.js') }}" data-cf-settings="a0520ad00f72731040c98d19-|49" defer=""></script>
+    <script src="{{ asset('craft-js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('craft-js/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ asset('craft-js/jquery.stellar.min.js') }}"></script>
 </body>
 
 <!-- Mirrored from colorlib.com/etc/creative-agency/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Jun 2019 04:57:29 GMT -->
