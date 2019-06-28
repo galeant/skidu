@@ -25,7 +25,7 @@
 <body>
 
     <header role="banner">
-        <nav class="navbar navbar-expand-lg  bg-dark">
+        <nav id="nav" class="navbar navbar-expand-lg  bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand " href="index.html">Craft</a>
 
@@ -36,10 +36,10 @@
                 <div class="collapse navbar-collapse" id="navbarsExample05">
                     <ul class="navbar-nav pl-md-5 ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Home</a>
+                            <a class="nav-link" data-scroll href="#home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" data-scroll href="#about">About</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="services.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
@@ -51,27 +51,19 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="portfolio.html">Portfolio</a>
+                            <a class="nav-link" data-scroll href="#work">Portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" data-scroll href="#contact">Contact</a>
                         </li>
                     </ul>
-
-                    <div class="navbar-nav ml-auto">
-                        <form method="post" class="search-form">
-                            <span class="icon ion ion-search"></span>
-                            <input type="text" class="form-control" placeholder="Search...">
-                        </form>
-                    </div>
-
                 </div>
             </div>
         </nav>
     </header>
     <!-- END header -->
 
-    <div class="slider-item overlay" data-stellar-background-ratio="0.5" style="background-image: url('craft-images/hero_2.jpg');">
+    <div id="home" class="slider-item overlay" data-stellar-background-ratio="0.5" style="background-image: url('craft-images/hero_2.jpg');">
         <div class="container">
             <div class="row slider-text align-items-center justify-content-center">
                 <div class="col-lg-9 text-center col-sm-12 element-animate">
@@ -86,7 +78,7 @@
         </div>
     </div>
 
-    <div class="section">
+    <div id="about" class="section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 mr-auto mb-5">
@@ -106,7 +98,7 @@
         </div>
     </div>
 
-    <div class="section portfolio-section">
+    <div id="work" class="section portfolio-section">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
@@ -149,13 +141,13 @@
             </div>
             <div class="row mt-5">
                 <div class="col-12 text-center">
-                    <p><a href="portfolio.html" class="btn btn-outline-white px-4 py-3">More Portfolio</a></p>
+                    <p><a href="portfolio.html" class="btn btn-outline-black px-4 py-3">More Portfolio</a></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="section">
+    <div id="service" class="section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 mr-auto mb-3">
@@ -203,7 +195,7 @@
         </div>
     </div>
 
-    <div class="section bg-light block-11">
+    <div id="testimoni" class="section bg-light block-11">
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-8 text-center">
@@ -285,7 +277,7 @@
     <!-- END .block-4 -->
     </div>
 
-    <div class="bg-primary py-5">
+    <div id="contact" class="bg-primary py-5">
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
@@ -378,7 +370,11 @@
     <script src="{{ asset('craft-js/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('craft-js/jquery.fancybox.min.js') }}"></script>
     <script src="{{ asset('craft-js/jquery.stellar.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
     <script src="{{ asset('craft-js/main.js') }}"></script>
+    <script>
+        var mono = new SmoothScroll('a[href*="#"]');
+    </script>
 </body>
 
 </html>

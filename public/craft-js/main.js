@@ -211,6 +211,14 @@
   };
   slideImage();
   
+  $(window).on('scroll', function () {
+		var wScroll = $(this).scrollTop();
+		wScroll > 1 ? $('#nav').addClass('fixed-nav') : $('#nav').removeClass('fixed-nav');
+		wScroll > 700 ? $('#back-to-top').fadeIn() : $('#back-to-top').fadeOut();
+  });
+  $('body').scrollspy({
+		target: '#nav',
+		offset: $(window).height() / 2
+	});
   
-
 })(jQuery);
