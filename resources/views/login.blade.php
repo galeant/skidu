@@ -139,7 +139,7 @@
                     profileHTML += '<img src="'+resp.picture+'"/><p><b>Google ID: </b>'+resp.id+'</p><p><b>Name: </b>'+resp.name+'</p><p><b>Email: </b>'+resp.email+'</p><p><b>Gender: </b>'+resp.gender+'</p><p><b>Locale: </b>'+resp.locale+'</p><p><b>Google Profile:</b> <a target="_blank" href="'+resp.link+'">click to view profile</a></p>';
                     document.getElementsByClassName("userContent")[0].innerHTML = profileHTML;
                     
-                    document.getElementById("gSignIn").style.display = "none";
+                    // document.getElementById("gSignIn").style.display = "none";
                     document.getElementsByClassName("userContent")[0].style.display = "block";
                 });
             });
