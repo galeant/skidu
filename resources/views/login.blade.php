@@ -18,7 +18,9 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="description" content="Admindek Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
       <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
+      <meta name="google-signin-client_id" content="68296438814-lqnt18os9hbk1tsji6dk4t8e6sqpao01.apps.googleusercontent.com">
       <meta name="author" content="colorlib" />
+
       <!-- Favicon icon -->
 
       <link rel="icon" href="https://colorlib.com/polygon/admindek/files/assets/images/favicon.ico" type="image/x-icon">
@@ -114,9 +116,9 @@
                                     <div class="col-md-6">
                                         <a href="{{ url('login/facebook') }}" class="btn btn-facebook m-b-20 btn-block"><i class="icofont icofont-social-facebook"></i>facebook</a>
                                     </div>
-                                    <!-- <div class="col-md-6">
-                                        <button class="btn btn-twitter m-b-20 btn-block"><i class="icofont icofont-social-twitter"></i>twitter</button>
-                                    </div> -->
+                                    <div class="col-md-6">
+                                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                                    </div>
                                 </div>
                                 @if(session()->get('error'))
                                 <div class="alert alert-danger background-danger">
@@ -179,12 +181,23 @@
 <script type="text/javascript" src="{{ asset('files/assets/js/common-pages.js') }}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
+
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    }
+
 </script>
 </body>
 
