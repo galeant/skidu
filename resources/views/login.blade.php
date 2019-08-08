@@ -18,10 +18,13 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="description" content="Admindek Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
       <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
-      <meta name="google-signin-client_id" content="68296438814-lqnt18os9hbk1tsji6dk4t8e6sqpao01.apps.googleusercontent.com">
       <meta name="author" content="colorlib" />
-
       <!-- Favicon icon -->
+
+        <meta name="google-signin-client_id" content="68296438814-lqnt18os9hbk1tsji6dk4t8e6sqpao01.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
 
       <link rel="icon" href="https://colorlib.com/polygon/admindek/files/assets/images/favicon.ico" type="image/x-icon">
       <!-- Google font-->     
@@ -41,6 +44,9 @@
   </head>
 
   <body themebg-pattern="theme1">
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=183886865850577&autoLogAppEvents=1"></script>
+<div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true"></div>
   <!-- Pre-loader start -->
   <div class="theme-loader">
       <div class="loader-track">
@@ -117,9 +123,10 @@
                                         <a href="{{ url('login/facebook') }}" class="btn btn-facebook m-b-20 btn-block"><i class="icofont icofont-social-facebook"></i>facebook</a>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                                        <a href="#" onclick="signOut();">Sign out</a>
+                                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
+
+                                        <!-- <button class="btn btn-twitter m-b-20 btn-block"><i class="icofont icofont-social-twitter"></i>twitter</button> -->
                                     </div>
                                 </div>
                                 @if(session()->get('error'))
@@ -183,28 +190,40 @@
 <script type="text/javascript" src="{{ asset('files/assets/js/common-pages.js') }}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
+  
+</script>
+<script>
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    var id_token = googleUser.getAuthResponse().id_token;
 
-    function onSignIn(googleUser) {
-        console.log(googleUser);
-        // var profile = googleUser.getBasicProfile();
-        // console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        // console.log('Name: ' + profile.getName());
-        // console.log('Image URL: ' + profile.getImageUrl());
-        // console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    }
-    function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-        console.log('User signed out.');
+    // console.log(id_token)
+    gapi.load('auth2', function() {
+        auth2 = gapi.auth2.init({
+          client_id: '68296438814-lqnt18os9hbk1tsji6dk4t8e6sqpao01.apps.googleusercontent.com',
+          // Scopes to request in addition to 'profile' and 'email'
+          scope: 'additional_scope'
         });
+      });
+
+        // gapi.load('oauth2', 'v2', function () {
+        //     var request = gapi.client.oauth2.userinfo.get({
+        //         'userId': 'me'
+        //     });
+        //     console.log(request)
+        //     // request.execute(function (resp) {
+        //     //     console.log(resp)
+                
+        //     //     // Save user data
+        //     //     saveUserData(resp);
+        //     // });
+        // });
     }
 
 </script>
