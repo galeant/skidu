@@ -226,4 +226,8 @@ class TestController extends Controller
     public function pub_guzel($req = [],$method = 'GET'){
 
     }
+
+    public function masuk(){
+        dd('masuk google');
+    }
 }
