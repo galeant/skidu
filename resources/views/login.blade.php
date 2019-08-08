@@ -19,6 +19,8 @@
       <meta name="description" content="Admindek Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
       <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
       <meta name="author" content="colorlib" />
+
+      <meta name="google-signin-client_id" content="68296438814-7su7tubn0hdleiger9m3rfqlb471v74e.apps.googleusercontent.com ">
       <!-- Favicon icon -->
 
       <link rel="icon" href="https://colorlib.com/polygon/admindek/files/assets/images/favicon.ico" type="image/x-icon">
@@ -36,6 +38,8 @@
       <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/icon/font-awesome/css/font-awesome.min.css') }}">
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="{{ asset('files/assets/css/style.css') }}"><link rel="stylesheet" type="text/css" href="{{ asset('files/assets/css/pages.css') }}">
+        
+      <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
   </head>
 
   <body themebg-pattern="theme1">
@@ -101,6 +105,71 @@
         }
     </script>
     <a href="javascript:void(0);" onclick="fbLogin()" id="fbLink"><img src="fblogin.png"/></a>
+
+
+    <!-- gogel -->
+    <script>
+        // Render Google Sign-in button
+        function renderButton() {
+            gapi.signin2.render('gSignIn', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+        }
+
+        // Sign-in success callback
+        function onSuccess(googleUser) {
+            // Get the Google profile data (basic)
+            //var profile = googleUser.getBasicProfile();
+            
+            // Retrieve the Google account data
+            gapi.client.load('oauth2', 'v2', function () {
+                var request = gapi.client.oauth2.userinfo.get({
+                    'userId': 'me'
+                });
+                request.execute(function (resp) {
+                    // Display the user details
+                    var profileHTML = '<h3>Welcome '+resp.given_name+'! <a href="javascript:void(0);" onclick="signOut();">Sign out</a></h3>';
+                    profileHTML += '<img src="'+resp.picture+'"/><p><b>Google ID: </b>'+resp.id+'</p><p><b>Name: </b>'+resp.name+'</p><p><b>Email: </b>'+resp.email+'</p><p><b>Gender: </b>'+resp.gender+'</p><p><b>Locale: </b>'+resp.locale+'</p><p><b>Google Profile:</b> <a target="_blank" href="'+resp.link+'">click to view profile</a></p>';
+                    document.getElementsByClassName("userContent")[0].innerHTML = profileHTML;
+                    
+                    document.getElementById("gSignIn").style.display = "none";
+                    document.getElementsByClassName("userContent")[0].style.display = "block";
+                });
+            });
+        }
+
+        // Sign-in failure callback
+        function onFailure(error) {
+            alert(error);
+        }
+
+        // Sign out the user
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                document.getElementsByClassName("userContent")[0].innerHTML = '';
+                document.getElementsByClassName("userContent")[0].style.display = "none";
+                document.getElementById("gSignIn").style.display = "block";
+            });
+            
+            auth2.disconnect();
+        }
+    </script>
+    <!-- Display Google sign-in button -->
+    <div id="gSignIn"></div>
+
+    <!-- Show the user profile details -->
+    <div class="userContent" style="display: none;"></div>
+
+
+
+
   <!-- Pre-loader start -->
   <div class="theme-loader">
       <div class="loader-track">
