@@ -20,7 +20,7 @@
       <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
       <meta name="author" content="colorlib" />
 
-      <meta name="google-signin-client_id" content="68296438814-7su7tubn0hdleiger9m3rfqlb471v74e.apps.googleusercontent.com ">
+      <meta name="google-signin-client_id" content="68296438814-7su7tubn0hdleiger9m3rfqlb471v74e.apps.googleusercontent.com">
       <!-- Favicon icon -->
 
       <link rel="icon" href="https://colorlib.com/polygon/admindek/files/assets/images/favicon.ico" type="image/x-icon">
@@ -133,6 +133,7 @@
                     'userId': 'me'
                 });
                 request.execute(function (resp) {
+                    console.log(resp)
                     // Display the user details
                     var profileHTML = '<h3>Welcome '+resp.given_name+'! <a href="javascript:void(0);" onclick="signOut();">Sign out</a></h3>';
                     profileHTML += '<img src="'+resp.picture+'"/><p><b>Google ID: </b>'+resp.id+'</p><p><b>Name: </b>'+resp.name+'</p><p><b>Email: </b>'+resp.email+'</p><p><b>Gender: </b>'+resp.gender+'</p><p><b>Locale: </b>'+resp.locale+'</p><p><b>Google Profile:</b> <a target="_blank" href="'+resp.link+'">click to view profile</a></p>';
