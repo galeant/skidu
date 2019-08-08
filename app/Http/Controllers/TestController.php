@@ -16,9 +16,19 @@ use App\Mail\SendEmail;
 use App\LocationModel;
 use App\LocationHasil;
 use App\Transaction;
+use Analytics;
+use Spatie\Analytics\Period;
 
 class TestController extends Controller
 {
+    public function ga(){
+        // dd(storage_path());
+        // dd('qwdqwdq');
+        //fetch the most visited pages for today and the past week
+        dd(Analytics::fetchVisitorsAndPageViews(Period::days(7)));
+
+        
+    }
     public function minMax(Request $request){
         $ab = LocationModel::orderBy('id','ASC')->get();
         $b = [];

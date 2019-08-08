@@ -56,3 +56,4 @@ Route::get('contoh_4',function(){
 //     ];
 //     return $ar;
 // });
+Route::get('ga','TestController@ga');
