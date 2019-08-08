@@ -21,11 +21,6 @@
       <meta name="author" content="colorlib" />
       <!-- Favicon icon -->
 
-        <meta name="google-signin-client_id" content="68296438814-lqnt18os9hbk1tsji6dk4t8e6sqpao01.apps.googleusercontent.com">
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-
-
       <link rel="icon" href="https://colorlib.com/polygon/admindek/files/assets/images/favicon.ico" type="image/x-icon">
       <!-- Google font-->     
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
@@ -44,9 +39,6 @@
   </head>
 
   <body themebg-pattern="theme1">
-  <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=183886865850577&autoLogAppEvents=1"></script>
-<div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="true"></div>
   <!-- Pre-loader start -->
   <div class="theme-loader">
       <div class="loader-track">
@@ -122,12 +114,9 @@
                                     <div class="col-md-6">
                                         <a href="{{ url('login/facebook') }}" class="btn btn-facebook m-b-20 btn-block"><i class="icofont icofont-social-facebook"></i>facebook</a>
                                     </div>
-                                    <div class="col-md-6">
-                                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-
-                                        <!-- <button class="btn btn-twitter m-b-20 btn-block"><i class="icofont icofont-social-twitter"></i>twitter</button> -->
-                                    </div>
+                                    <!-- <div class="col-md-6">
+                                        <button class="btn btn-twitter m-b-20 btn-block"><i class="icofont icofont-social-twitter"></i>twitter</button>
+                                    </div> -->
                                 </div>
                                 @if(session()->get('error'))
                                 <div class="alert alert-danger background-danger">
@@ -196,36 +185,6 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
-  
-</script>
-<script>
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    var id_token = googleUser.getAuthResponse().id_token;
-
-    // console.log(id_token)
-    gapi.load('auth2', function() {
-        auth2 = gapi.auth2.init({
-          client_id: '68296438814-lqnt18os9hbk1tsji6dk4t8e6sqpao01.apps.googleusercontent.com',
-          // Scopes to request in addition to 'profile' and 'email'
-          scope: 'additional_scope'
-        });
-      });
-
-        // gapi.load('oauth2', 'v2', function () {
-        //     var request = gapi.client.oauth2.userinfo.get({
-        //         'userId': 'me'
-        //     });
-        //     console.log(request)
-        //     // request.execute(function (resp) {
-        //     //     console.log(resp)
-                
-        //     //     // Save user data
-        //     //     saveUserData(resp);
-        //     // });
-        // });
-    }
-
 </script>
 </body>
 
