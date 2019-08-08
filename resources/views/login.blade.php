@@ -54,6 +54,7 @@
             
             
             FB.getLoginStatus(function(response) {
+                console.log(response)
              if (response.status === 'connected') {
                     //display user data
                     getFbUserData();
@@ -94,6 +95,7 @@
             });
         }
         // Logout from facebook
+        fbLogout()
         function fbLogout() {
             FB.logout(function() {
                 console.log('logout');
