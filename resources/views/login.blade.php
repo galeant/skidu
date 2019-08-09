@@ -115,8 +115,6 @@
         function renderButton() {
             gapi.signin2.render('gSignIn', {
                 'scope': 'profile email',
-                'width': 240,
-                'height': 50,
                 'longtitle': true,
                 'theme': 'dark',
                 'onsuccess': onSuccess,
@@ -170,11 +168,6 @@
 
     <!-- Show the user profile details -->
     <div class="userContent" style="display: none;"></div>
-
-
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=183886865850577&autoLogAppEvents=1"></script>
-    <div class="fb-login-button" data-width="" data-size="" data-button-type="" data-auto-logout-link="" data-use-continue-as=""></div>
 
 
 
