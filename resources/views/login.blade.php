@@ -93,7 +93,6 @@
             });
         }
         // Logout from facebook
-        fbLogout()
         function fbLogout() {
             FB.logout(function() {
                 console.log('logout');
