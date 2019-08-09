@@ -41,9 +41,7 @@
         
       <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
   </head>
-
-  <body themebg-pattern="theme1">
-    <script>
+  <script>
         window.fbAsyncInit = function() {
             FB.init({
             appId      : '381533289227772',
@@ -106,6 +104,8 @@
             });
         }
     </script>
+  <body themebg-pattern="theme1">
+    
     <a href="javascript:void(0);" onclick="fbLogin()" id="fbLink"><img src="fblogin.png"/></a>
 
 
