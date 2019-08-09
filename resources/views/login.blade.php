@@ -85,7 +85,7 @@
         }
         // Fetch the user profile data from facebook
         function getFbUserData(){
-            FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture,phone,telephone,handphone'},
+            FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
             function (response) {
                 console.log(response);
                 // document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
