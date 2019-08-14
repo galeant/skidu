@@ -141,6 +141,8 @@
                         
                         // document.getElementById("gSignIn").style.display = "none";
                         document.getElementsByClassName("userContent")[0].style.display = "block";
+                    }else{
+                        signOut();
                     }
                 });
             });
