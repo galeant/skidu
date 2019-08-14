@@ -41,6 +41,7 @@
         
       <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
   </head>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=183886865850577&autoLogAppEvents=1"></script>
   <script>
         window.fbAsyncInit = function() {
             FB.init({
@@ -105,7 +106,8 @@
     </script>
   <body themebg-pattern="theme1">
     
-    <a href="javascript:void(0);" onclick="fbLogin()" id="fbLink"><img src="fblogin.png"/></a>
+  <div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+    <!-- <a href="javascript:void(0);" onclick="fbLogin()" id="fbLink"><img src="fblogin.png"/></a> -->
 
 
     <!-- gogel -->
