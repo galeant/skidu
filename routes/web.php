@@ -11,7 +11,8 @@
 |
 */
 Route::get('/',function(){
-    return view('welcome');
+    // return view('welcome');
+    return view('expro.index');
 });
 Route::get('contoh_1',function(){
     return view('craft.index');
