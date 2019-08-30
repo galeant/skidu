@@ -62,6 +62,18 @@ body {
     background-color: #f5f5f5;
 }
 
+/* .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:  flex;
+    flex-wrap: wrap;
+}
+
+.row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  } */
 
 h1,
 h2,
@@ -99,7 +111,7 @@ img {
     03. SECTION HEADING
  =========================*/
 .section-heading {
-    margin: 0px auto 100px;
+    margin: 0px auto 50px;
     text-align: center;
 }
 
@@ -197,7 +209,7 @@ img {
 #header-area {
     overflow: hidden;
     background-color: #fff;
-    height: 100vh;
+    height: 60vh;
     position: relative;
 }
 
@@ -285,7 +297,7 @@ a.nav-link.active {
     top: 0;
     left: 0;
     width: 100%;
-    background: #0E1626;
+    background: #ffff;
     padding-left: 8rem;
     padding-right: 8rem;
 }
@@ -524,7 +536,6 @@ h1 .slider-heading-color {
     padding: 120px 0 110px;
     background: #f0f8ff;
     display: flex;
-    background-image: url(../expro-img/bg/contact.jpg);
     background-size: cover;
     background-position: center center;
     position: relative;
@@ -713,7 +724,10 @@ h1 .slider-heading-color {
 #portfolio-area {
     padding: 120px 0 90px;
     overflow: hidden;
-    background-color: #fff;
+    background-color: #242C3B;
+}
+#portfolio-area .section-heading h2{
+    color:#ffff;
 }
 
 .single-portfolio {
@@ -1179,17 +1193,18 @@ ul.portfolio-nav li:hover {
 #service-area {
     overflow: hidden;
     padding: 120px 0 90px;
-    background: #f5f5f5;
+    background: #ffff;
 }
 
 .single-service {
     padding: 20px;
-    background: #f0f8ff;
+    background: #d50a0a;
     box-shadow: 0 0 50px rgba(0,0,0,.1);
     text-align: center;
     margin-bottom: 30px;
     transition: all .4s ease-in;
     position: relative;
+    height: 100%;
 }
 
 
@@ -1203,7 +1218,7 @@ ul.portfolio-nav li:hover {
 
 .service-icon i.icon {
     font-size: 50px;
-    color: #ffc107;
+    color: #ffff;
     line-height: 40px;
     display: inline-block;
     -webkit-transform: scale(1);
@@ -1222,12 +1237,12 @@ ul.portfolio-nav li:hover {
     margin-bottom: 15px;
     line-height: 22px;
     text-transform: capitalize;
-    color: #000;
+    color: #ffff;
 }
 
 .single-service p {
     font-size: 16px;
-    color: #8c8686;
+    color: #ffff;
     font-weight: 300;
     margin-bottom: 10px;
     line-height: 28px;
@@ -2455,7 +2470,7 @@ span.blog-date {
 
 /*=========== MAP STYLES ============*/
 #map {
-    height: 492px;
+    height: 345px;
     width: 100%;
     background-color: white;
 }
@@ -2466,7 +2481,7 @@ span.blog-date {
 ========================== */
 #footer-area {
     overflow: hidden;
-    padding: 80px 0;
+    /* padding: 80px 0; */
     background-color: #080d17;
 }
 
@@ -2804,4 +2819,33 @@ form button[type='submit'] {
     transform: scale(1.0);
     opacity: 0;
   }
+}
+.solution{
+    padding:10px;
+    height:150px;
+    background-color: #ffff;
+}
+.sol-icon{
+    font-size: 50px;
+    color: #EF2828;
+    line-height: 40px;
+    display: inline-block;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    transition: .4s ease;
+}
+h4.sol{
+    color: #EF2828;
+}
+.info{
+    color:#fff;
+}
+.client{
+    padding:0;
+    height:auto;
+}
+#client-area {
+    padding: 120px 0 90px;
+    overflow: hidden;
+    background-color: #ffff;
 }
