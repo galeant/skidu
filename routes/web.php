@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/',function(){
-//     return view('welcome');
-// });
+ Route::get('/',function(){
+     return view('welcome');
+ });
 // Route::get('contoh_1',function(){
 //     return view('craft.index');
 // })->name('contoh1');
@@ -33,9 +33,9 @@
 //     return view('hitung');
 // });
 // Route::get('min_max','TestController@minMax');
-Route::get('/', 'TestController@dashboard')->middleware('checkLogin');
-Route::get('login', 'TestController@login');
-Route::get('masuk', 'TestController@masuk');
+//Route::get('/', 'TestController@dashboard')->middleware('checkLogin');
+//Route::get('login', 'TestController@login');
+//Route::get('masuk', 'TestController@masuk');
 // Route::post('login/process', 'TestController@loginProcess');
 // Route::get('logout', 'TestController@logout');
 // Route::get('login/{provider}','TestController@toProvider');
