@@ -9,37 +9,37 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-Route::get('/',function(){
-    return view('welcome');
-});
-Route::get('contoh_1',function(){
-    return view('craft.index');
-})->name('contoh1');
+// */
+// Route::get('/',function(){
+//     return view('welcome');
+// });
+// Route::get('contoh_1',function(){
+//     return view('craft.index');
+// })->name('contoh1');
 
-Route::get('contoh_2',function(){
-    return view('creative-agency.index');
-})->name('contoh2');
+// Route::get('contoh_2',function(){
+//     return view('creative-agency.index');
+// })->name('contoh2');
 
-Route::get('contoh_3',function(){
-    return view('expro.index');
-})->name('contoh3');
+// Route::get('contoh_3',function(){
+//     return view('expro.index');
+// })->name('contoh3');
 
-Route::get('contoh_4',function(){
-    return view('wexim.index');
-})->name('contoh4');
+// Route::get('contoh_4',function(){
+//     return view('wexim.index');
+// })->name('contoh4');
 
-Route::get('hitung',function(){
-    return view('hitung');
-});
+// Route::get('hitung',function(){
+//     return view('hitung');
+// });
 // // Route::get('min_max','TestController@minMax');
-// Route::get('/', 'TestController@dashboard')->middleware('checkLogin');
-// Route::get('login', 'TestController@login');
-// Route::get('masuk', 'TestController@masuk');
-// // Route::post('login/process', 'TestController@loginProcess');
-// // Route::get('logout', 'TestController@logout');
-// // Route::get('login/{provider}','TestController@toProvider');
-// // Route::get('login/{provider}/callback','TestController@callback');
+Route::get('/', 'TestController@dashboard')->middleware('checkLogin');
+Route::get('login', 'TestController@login');
+Route::get('masuk', 'TestController@masuk');
+Route::post('login/process', 'TestController@loginProcess');
+Route::get('logout', 'TestController@logout');
+Route::get('login/{provider}','TestController@toProvider');
+Route::get('login/{provider}/callback','TestController@callback');
 // // // Route::get('email',function(){
 // // //     return view('email');
 // // // });
