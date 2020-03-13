@@ -19,6 +19,9 @@ use App\Transaction;
 use Analytics;
 use Spatie\Analytics\Period;
 
+use App\Plot;
+use App\Pekerjaan;
+
 class TestController extends Controller
 {
     public function ga(){
@@ -229,5 +232,233 @@ class TestController extends Controller
 
     public function masuk(){
         dd('masuk google');
+    }
+
+    public function dbSeed(){
+        $ar = [
+            [
+                'nama' => 'pekerjaan a',
+                'satuan_durasi' => 'hari',
+                'bobot' => '9.09',
+                'eksekusi' => [
+                    [
+                        'bobot_eksekusi' => '1.52',
+                        'urutan_durasi' => 1
+                    ],
+                    [
+                        'bobot_eksekusi' => '1.52',
+                        'urutan_durasi' => 2
+                    ],
+                    [
+                        'bobot_eksekusi' => '1.52',
+                        'urutan_durasi' => 3
+                    ],
+                    [
+                        'bobot_eksekusi' => '1.52',
+                        'urutan_durasi' => 4
+                    ],
+                    [
+                        'bobot_eksekusi' => '1.52',
+                        'urutan_durasi' => 5
+                    ],
+                    [
+                        'bobot_eksekusi' => '1.52',
+                        'urutan_durasi' => 6
+                    ],
+                ]
+            ],
+            [
+                'nama' => 'pekerjaan b',
+                'satuan_durasi' => 'hari',
+                'bobot' => '13.64',
+                'eksekusi' => [
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 1
+                    ],
+                    [
+                        'bobot_eksekusi' => '6.82',
+                        'urutan_durasi' => 2
+                    ],
+                    [
+                        'bobot_eksekusi' => '6.82',
+                        'urutan_durasi' => 3
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 4
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 5
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 6
+                    ],
+                ]
+            ],
+            [
+                'nama' => 'pekerjaan c',
+                'satuan_durasi' => 'hari',
+                'bobot' => '18.18',
+                'eksekusi' => [
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 1
+                    ],
+                    [
+                        'bobot_eksekusi' => '9.09',
+                        'urutan_durasi' => 2
+                    ],
+                    [
+                        'bobot_eksekusi' => '9.09',
+                        'urutan_durasi' => 3
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 4
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 5
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 6
+                    ],
+                ]
+            ],
+            [
+                'nama' => 'pekerjaan d',
+                'satuan_durasi' => 'hari',
+                'bobot' => '13.64',
+                'eksekusi' => [
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 1
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 2
+                    ],
+                    [
+                        'bobot_eksekusi' => '13.64',
+                        'urutan_durasi' => 3
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 4
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 5
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 6
+                    ],
+                ]
+            ],
+            [
+                'nama' => 'pekerjaan e',
+                'satuan_durasi' => 'hari',
+                'bobot' => '36.36',
+                'eksekusi' => [
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 1
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 2
+                    ],
+                    [
+                        'bobot_eksekusi' => '12.12',
+                        'urutan_durasi' => 3
+                    ],
+                    [
+                        'bobot_eksekusi' => '12.12',
+                        'urutan_durasi' => 4
+                    ],
+                    [
+                        'bobot_eksekusi' => '12.12',
+                        'urutan_durasi' => 5
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 6
+                    ],
+                ]
+            ],
+            [
+                'nama' => 'pekerjaan f',
+                'satuan_durasi' => 'hari',
+                'bobot' => '9.09',
+                'eksekusi' => [
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 1
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 2
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 3
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 4
+                    ],
+                    [
+                        'bobot_eksekusi' => '9.09',
+                        'urutan_durasi' => 5
+                    ],
+                    [
+                        'bobot_eksekusi' => 0,
+                        'urutan_durasi' => 6
+                    ],
+                ]
+            ],
+        ];
+
+        foreach($ar as $a){
+            $p = Plot::create([
+                'nama_pekerjaan' => $a['nama'],
+                'satuan_durasi' => $a['satuan_durasi'],
+                'bobot' => $a['bobot']
+            ]);
+            foreach($a['eksekusi'] as $ek){
+                Pekerjaan::create([
+                    'pekerjaan_id' => $p->id,
+                    'bobot_eksekusi' => $ek['bobot_eksekusi'],
+                    'urutan_durasi' => $ek['urutan_durasi'],
+                    'is_perencanaan' => true
+                ]);
+            }
+        }
+        dd('kelar');
+    }
+    public function plot(){
+        // dd('ssdsds');
+        $plot = Plot::with('perencanaan')->get();
+        // dd($plot->toArray());
+
+        $point = [];
+        $max = 0;
+        foreach($plot as $i => $pt){    
+            if(count($pt->perencanaan) > $max){
+                $max = count($pt->perencanaan);             
+            }   
+        }
+        // dd($max);
+        $pk = $plot->pluck('perencanaan')->flatten()->groupBy('urutan_durasi');
+        // dd($pk->toArray());
+        foreach($pk as $pkk){
+            $point[] = $pkk->pluck('bobot_eksekusi')->sum();
+        }
+        dd($point);
     }
 }
