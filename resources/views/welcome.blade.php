@@ -113,4 +113,73 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-messaging.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyB7nPq48neNCYdlIpvBwyXJvLe46KAcGsg",
+        authDomain: "larabase-83799.firebaseapp.com",
+        databaseURL: "https://larabase-83799.firebaseio.com",
+        projectId: "larabase-83799",
+        storageBucket: "larabase-83799.appspot.com",
+        messagingSenderId: "321077544402",
+        appId: "1:321077544402:web:057382c2a2b4b6eb27740b"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    // 
+    const messaging = firebase.messaging();
+    messaging.usePublicVapidKey("BNBZORcCzFI-eKTxAq_TAln7NiEW6Y9XYlnspR1Kt_sftyzaCKkjBzSt4igRval1PzGH0fOe2mtL7WqzXEjjoXQ");
+
+
+    // 
+    //   `messaging.setBackgroundMessageHandler` handler.
+    messaging.onMessage((payload) => {
+    console.log('Message received. ', payload);
+    // ...
+    });
+    // // 
+    // // Get Instance ID token. Initially this makes a network call, once retrieved
+    // // subsequent calls to getToken will return from cache.
+    // messaging.getToken().then((currentToken) => {
+    // if (currentToken) {
+    //     sendTokenToServer(currentToken);
+    //     updateUIForPushEnabled(currentToken);
+    // } else {
+    //     // Show permission request.
+    //     console.log('No Instance ID token available. Request permission to generate one.');
+    //     // Show permission UI.
+    //     updateUIForPushPermissionRequired();
+    //     setTokenSentToServer(false);
+    // }
+    // }).catch((err) => {
+    // console.log('An error occurred while retrieving token. ', err);
+    // showToken('Error retrieving Instance ID token. ', err);
+    // setTokenSentToServer(false);
+    // });
+
+    // // Callback fired if Instance ID token is updated.
+    // messaging.onTokenRefresh(() => {
+    // messaging.getToken().then((refreshedToken) => {
+    //     console.log('Token refreshed.');
+    //     // Indicate that the new Instance ID token has not yet been sent to the
+    //     // app server.
+    //     setTokenSentToServer(false);
+    //     // Send Instance ID token to app server.
+    //     sendTokenToServer(refreshedToken);
+    //     // ...
+    // }).catch((err) => {
+    //     console.log('Unable to retrieve refreshed token ', err);
+    //     showToken('Unable to retrieve refreshed token ', err);
+    // });
+    // });
+
+
+    </script>
 </html>
